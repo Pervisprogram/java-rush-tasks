@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>АнтиПрокрастинация — веб-версия</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>АнтиПрокрастинация</h1>
+    <div class="top-actions"><p id="todayDate"></p><button id="clearDataBtn" class="danger" type="button">Сбросить данные</button></div>
+  </header>
+
+  <main class="layout">
+    <section class="card stats">
+      <h2>Дашборд продуктивности</h2>
+      <div class="stats-grid">
+        <article>
+          <span>Задач всего</span>
+          <strong id="totalTasks">0</strong>
+        </article>
+        <article>
+          <span>Выполнено</span>
+          <strong id="doneTasks">0</strong>
+        </article>
+        <article>
+          <span>Фокус-сессий</span>
+          <strong id="focusCount">0</strong>
+        </article>
+      </div>
+      <div class="progress-wrap">
+        <div id="dayProgress" class="progress-bar"></div>
+      </div>
+      <p id="progressText">Прогресс дня: 0%</p>
+    </section>
+
+    <section class="card tasks">
+      <h2>План задач</h2>
+      <div class="row">
+        <input id="taskInput" type="text" placeholder="Например: Подготовить отчёт" />
+        <button id="addTaskBtn" type="button">Добавить</button>
+      </div>
+      <div class="lists">
+        <div>
+          <h3>Активные</h3>
+          <ul id="activeTasks"></ul>
+        </div>
+        <div>
+          <h3>Сделано</h3>
+          <ul id="doneTasksList"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card timer">
+      <h2>Pomodoro таймер</h2>
+      <select id="modeSelect">
+        <option value="1500">Фокус 25 мин</option>
+        <option value="300">Короткий перерыв 5 мин</option>
+        <option value="900">Длинный перерыв 15 мин</option>
+      </select>
+      <p id="timerValue">25:00</p>
+      <div class="row">
+        <button id="startTimer" type="button">Старт</button>
+        <button id="pauseTimer" class="warn" type="button">Пауза</button>
+        <button id="resetTimer" class="muted" type="button">Сброс</button>
+      </div>
+    </section>
+
+    <section class="card habits">
+      <h2>Трекер привычек</h2>
+      <div class="row">
+        <input id="habitInput" type="text" placeholder="Например: Читать 20 минут" />
+        <button id="addHabitBtn" type="button">Новая привычка</button>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Привычка</th>
+            <th>Серия</th>
+            <th>Последняя отметка</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="habitBody"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
